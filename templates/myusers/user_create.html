@@ -1,0 +1,28 @@
+{% extends 'base0.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
+            <div class="account-wall">
+                <img class="profile-img" src="{% static 'img/user.png' %}" alt="">
+
+                <form method="post" class="form-signin">
+                    {% csrf_token %}
+                    <input type="text"     class="form-control" placeholder="Username"        required autofocus name="username">
+                    <input type="text"     class="form-control" placeholder="First Name"      required           name="first_name">
+                    <input type="text"     class="form-control" placeholder="Last Name"       required           name="last_name">
+                    <input type="email"    class="form-control" placeholder="Email"           required           name="email">
+                    <input type="password" class="form-control" placeholder="Password"        required           name="password1">
+                    <input type="password" class="form-control" placeholder="Retype password" required           name="password2">
+
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

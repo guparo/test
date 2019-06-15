@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-md-offset-4">
+         
+                <div class="account-wall">
+
+<h2><center>Passenger</center></h2>
+<form method="post"  class="form-signin" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class="btn btn-success" type="submit" value="Submit" />
+    <button class="btn  btn-sm" onclick="location.href='{% url "passenger_list" %}'" type="button">Cancel</button>
+
+
+</form>
+{% endblock %}
+</div>
+</div>
+</div>

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Passenger Delete
+{% endblock %}
+{% block content %}
+<form method="post">{% csrf_token %}
+
+    Are you sure you want to delete "{{ object }}" ?
+    <button class="btn btn-danger" type="submit">Submit</button> 
+</form>
+{% endblock %}
+</div>
+{% block scripts %}
+
+
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable();
+    } );
+</script>
+
+{% endblock %}

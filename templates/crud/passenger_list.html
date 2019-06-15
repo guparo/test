@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Titanic Passenger
+{% endblock %}
+{% block content %}
+
+<div class="container">
+
+<a class="btn btn-primary float-right" href = "{% url "passenger_new" %}"> Add Passenger</a>
+
+<table id="example" class="table table-striped table-bordered table-sm" style="width:100%">
+   
+<thead>
+    <tr>
+    <th>id</th>
+    <th>Name</th>
+    <th>Image</th>
+    <th>Survived</th>
+    <th>Age</th>
+    <th>Sexo</th>
+    <th>Class</th>
+    <th>View</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    </tr>
+</thead>
+<tbody>
+    {% for pa in object_list %}
+    <tr>
+        <td>{{ pa.id }}</td>
+        <td>{{ pa.name }}</td>
+        <td><img src= "{{ pa.image.url }}" class="img-responsive" width="42" height="42" alt="no imagen"></td> 
+        <td>{{ pa.survived }}</td>
+        <td>{{ pa.age }}</td>
+        <td>{{ pa.sexo }}</td>
+
+
+        <td>{{ pa.ticket_class}}</td>
+        <td><button class='btn  btn-sm' onclick="location.href='{% url 'passenger_view' pa.id %}'"   style='background-color:transparent;'><i class="fa fa-th-large"></i> </button></td>
+        <td><button class='btn  btn-sm' onclick="location.href='{% url 'passenger_edit' pa.id %}'"   style='background-color:transparent;'><i class="fa fa-pencil"></i> </button></td>
+        <td><button class='btn  btn-sm' onclick="location.href='{% url 'passenger_delete' pa.id %}'" style='background-color:transparent;'><i class="fa fa-trash"></i></button></td>
+
+
+    </tr>
+    {% endfor %}
+</tbody>
+<tfoot>
+        <tr>
+            <th>id</th>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Survived</th>
+            <th>Age</th>
+            <th>Sexo</th>
+            <th>Class</th>
+            <th>View</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </tfoot>
+</table>
+
+
+{% endblock %}
+</div>
+{% block scripts %}
+
+
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable();
+    } );
+</script>
+
+{% endblock %}

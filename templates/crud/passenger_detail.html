@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Passenger Details
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="card-group">
+            <div class="card bg-primary">
+                    <div class="card-body text-center">
+                            <img class="card-img-top" src="{{ object.image.url }}" alt="Card image" style="width:50%">
+                            
+                    </div>
+
+                    <div class="card-body text-center">
+                        <h4>Survived: {{ object.survived }}</h4>
+                    </div>
+                    <div class="card-body text-center">
+                                <h4>Class: {{ object.ticket_class}}</h4>
+                    </div>
+            </div>
+
+            <div class="card bg-warning">
+                        <div class="card-body text-center">
+                             <h3>{{ object.name }}</h3>
+                
+                        </div>
+                    <div class="card-body text-left">
+                        {{ object.text}}
+
+                    </div>
+            </div>
+
+    </div>
+    <button class="btn  btn-success" onclick="location.href='{% url "passenger_list" %}'" type="button">Return</button>
+
+</div>
+
+{% endblock %}

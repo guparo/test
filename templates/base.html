@@ -1,0 +1,154 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+
+    <title>DJANGO | DEMO</title>
+    <meta name="description" content="Django demo">
+    <meta name="keywords" content="DJANGO,PYTHON,BOOTSTRAP,DATATABLE,JQUERY,JavaScript">
+    <meta name="author" content="Gustavo Patino">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    <link href="{% static 'css/navbar-top-fixed.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+</head>
+
+<body>
+    <div class="container">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+
+        <a class="navbar-brand" href="#"> <img class="img-responsive" width="60" height="60" alt="logo" src="{% static 'img/logo.png' %}" ></a>
+
+  
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item active dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="Preview" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    Titanic Passenger
+                </a>
+                <div class="dropdown-menu" aria-labelledby="Preview">
+                  <a class="dropdown-item" href="{% url 'passenger_list' %}">DataTable</a> 
+                  <a class="dropdown-item" href="/chart/">Chart</a> 
+                  <a class="dropdown-item" href="/json_example/">Pie</a> 
+                  <a class="dropdown-item" href="/chart_data/">Pie222</a> 
+
+
+
+
+                  <a class="dropdown-item" href="/passenger_pdf">PDF</a> 
+                  <a class="dropdown-item" href="/passenger_pdf2">PDF2</a> 
+
+
+
+
+
+
+
+
+
+                  <a class="dropdown-item" href="{% url 'video' %}">Video</a> 
+
+
+                </div>
+          </li>
+
+
+
+      <li class="nav-item active dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="Preview" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                Deep Learning
+        </a>
+        <div class="dropdown-menu" aria-labelledby="Preview">
+          <a class="dropdown-item" href="/post_list/">Classification </a> 
+          <a class="dropdown-item" href="">next</a> 
+        </div>
+  </li>
+
+
+      <li class="nav-item active dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="Preview" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                Admin
+            </a>
+            <div class="dropdown-menu" aria-labelledby="Preview">
+              <a class="dropdown-item" href="{% url 'users_list' %}">User</a> 
+              <a class="dropdown-item" href="{% url 'contact_list' %}">Messager</a> 
+            </div>
+      </li>
+
+
+          </ul>
+
+
+          <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item active">
+                        <a class="nav-link" >Hi</a>
+                </li>
+                <li class="nav-item active">
+                        <a class="nav-link" href="{% url "passenger_list" %}">{{request.user.username}}</a>
+                </li>
+
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="Preview" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                  Logout
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="Preview">
+                  <a class="dropdown-item" href="{% url 'logout' %}">logout</a>
+                  <a class="dropdown-item" href="">Profile</a>
+                  </div>
+              </li>
+            </ul>
+
+
+        </div>
+      </nav>
+
+
+<div class="container">
+    <div class="row" >
+      <div class="col text-center">
+          <br>
+          <h1 class="display-4"> {% block title %}{% endblock %}</h1>
+      </div>
+    </div>
+</div> 
+
+        {% block content %}
+ 
+
+        {% endblock %}
+
+    <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+
+
+    <!-- Tooltips -->
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- MDB core JavaScript -->
+    <script src="{% static 'js/jquery.dataTables.min.js' %}"></script> 
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.src.js"></script>
+
+
+    {% block scripts %}
+
+    {% endblock %}
+    <script>   
+        // SideNav Initialization
+        $(".button-collapse").sideNav();
+    </script>
+</div>
+ 
+</body>
